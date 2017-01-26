@@ -63,8 +63,6 @@ bool parseArguments (int argc, char** argv) {
 }
 
 int main(int argc, char** argv) {
-	std::unique_ptr<Wave> wave(nullptr);
-
 	if (argc <= 1) {
 		usage();
 		return 1;
@@ -80,13 +78,9 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	if (pcmtofile) {
-		wave = std::unique_ptr<Wave>(new Wave("~/careless.wav", ExtractionType::PCM_TO_FILE));
-	} else {
-		wave = std::unique_ptr<Wave>(new Wave("~/careless.wav", ExtractionType::PCM_STREAM));
-	}
+	std::unique_ptr<Wave> wave(new Wave(filePath));
 
-	wave->hi();
+
 
 	return 0;
 }
