@@ -10,15 +10,14 @@
 
 class Wave {
 public:
-    Wave(const std::string path, const uint32_t byteInterval=512);
+    Wave(const std::string& path, const uint32_t byteInterval=512);
 
 private:
     bool openFile(const std::string& path);
-    std::shared_ptr<char> getBytes(uint32_t bytes);
+    std::shared_ptr<uint8_t> getBytes(uint32_t bytes);
 
-    std::fstream _file;
-    std::unique_ptr<WaveHeader>      _header;
-    std::unique_ptr<WaveFormatChunk> _formatChunk;
+    std::fstream file_;
+    std::unique_ptr<WaveHeader> header_;
 };
 
 #endif // Defines Wave.h

@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++11 -pthread
+CFLAGS = -std=c++14 -pthread
 EXE = YAWM
 
 all: Wave.o
